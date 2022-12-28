@@ -81,3 +81,25 @@ var handleNoteDelete = function (event) {
     });
   };
 
+// Sets the activeNote and displays it
+var handleNoteView = function () {
+    activeNote = $(this).data();
+    renderActiveNote();
+  };
+  
+  // Sets the activeNote to and empty object and allows the user to enter a new note
+  var handleNewNoteView = function () {
+    activeNote = {};
+    renderActiveNote();
+  };
+  
+  // If a note's title or text are empty, hide the save button
+  // Or else show it
+  var handleRenderSaveBtn = function () {
+    if (!$noteTitle.val().trim() || !$noteText.val().trim()) {
+      $saveNoteBtn.hide();
+    } else {
+      $saveNoteBtn.show();
+    }
+  };
+
